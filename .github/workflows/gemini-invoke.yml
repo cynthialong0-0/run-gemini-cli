@@ -82,7 +82,7 @@ jobs:
                     "--rm",
                     "-e",
                     "GITHUB_PERSONAL_ACCESS_TOKEN",
-                    "ghcr.io/github/github-mcp-server:v0.18.0"
+                    "ghcr.io/github/github-mcp-server:v0.27.0"
                   ],
                   "includeTools": [
                     "add_issue_comment",
@@ -104,7 +104,7 @@ jobs:
                     "search_code"
                   ],
                   "env": {
-                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
                   }
                 }
               },
