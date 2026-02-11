@@ -103,7 +103,7 @@ jobs:
                     "list_commits",
                     "push_files",
                     "search_code"
-                  ],
+                  ]
                 }
               },
               "tools": {
