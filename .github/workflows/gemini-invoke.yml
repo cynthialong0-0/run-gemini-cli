@@ -36,6 +36,9 @@ jobs:
           permission-contents: 'read'
           permission-issues: 'write'
           permission-pull-requests: 'write'
+      
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: 'Run Gemini CLI'
         id: 'run_gemini'
@@ -104,7 +107,7 @@ jobs:
                     "search_code"
                   ],
                   "env": {
-                    "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
                   }
                 }
               },
