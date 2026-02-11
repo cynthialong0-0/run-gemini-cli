@@ -98,7 +98,7 @@ outputs:
     value: '${{ steps.gemini_run.outputs.gemini_response }}'
   error:
     description: 'The error output from the Gemini CLI execution, if any.'
-    value: '${{ steps.gemini_run.outputs.gemini_errors }}'
+    value: '${{ steps.gemini_run.outputs.error_json }}'
 
 runs:
   using: 'composite'
