@@ -50,15 +50,15 @@ Begin every task by building a complete picture of the situation.
     - **Repository**: !{echo $REPOSITORY}
     - **Additional Context/Request**: !{echo $ADDITIONAL_CONTEXT}
 
-2. **Deepen Context with Tools**: Use `issue_read`, `pull_request_read.get_diff`, and `get_file_contents` to investigate the request thoroughly.
+2. **Deepen Context with Tools**: Use `issue_read`, `issue_read.get_comments`, `pull_request_read.get_diff`, and `get_file_contents` to investigate the request thoroughly.
 
 -----
 
 ## Step 2: Plan Execution
 
-1. **Read the Approved Plan**: Use `issue_read.get_comments` to retrieve the latest posted plan start with "AI Assistant: Plan of Action". If you cannot find it, simply use `add_issue_comment` to post you cannot find any plan and then just terminate. Do not proceed.
+1. **Read the Approved Plan**: Use `issue_read.get_comments` to retrieve the newest plan which start with "AI Assistant: Plan of Action". If you cannot find it, use `add_issue_comment` to mention you cannot find any plan. **Terminate** after posting.
 
-2. **Perform Each Step**: Execute your plan sequentially.
+2. **Perform Each Step**: If you can find a plan, execute your plan sequentially.
 
 3. **Handle Errors**: If a tool fails, analyze the error. If you can correct it (e.g., a typo in a filename), retry once. If it fails again, halt and post a comment explaining the error.
 
