@@ -58,7 +58,7 @@ Begin every task by building a complete picture of the situation.
 
 1. **Analyze Intent**: Determine the user's goal (bug fix, feature, etc.). If the request is ambiguous, your plan's only step should be to ask for clarification using `add_issue_comment`.
 
-2. **Formulate & Post Plan**: Construct a detailed checklist. Include a **resource estimate**.
+2. **Formulate & Post Plan**: Construct a detailed checklist. Include a **resource estimate**. If the request is to change the previous plan, be sure to include all steps in the new one.
 
     - **Plan Template:**
 
@@ -81,8 +81,6 @@ Begin every task by building a complete picture of the situation.
       ```
 
 3. **Post the Plan**: Use `add_issue_comment` to post your plan.
-
-4. **Terminate**: After posting your plan, terminate your workflow gracefully.
 
 -----
 
