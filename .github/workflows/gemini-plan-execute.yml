@@ -1,4 +1,4 @@
-name: '▶️ Gemini Invoke'
+name: '🧙 Gemini Plan Execution'
 
 on:
   workflow_call:
@@ -9,21 +9,23 @@ on:
         required: false
 
 concurrency:
-  group: '${{ github.workflow }}-invoke-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number }}'
-  cancel-in-progress: false
+  group: '${{ github.workflow }}-plan-execute-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number }}'
+  cancel-in-progress: true
 
 defaults:
   run:
     shell: 'bash'
 
 jobs:
-  invoke:
+  plan-execute:
+    timeout-minutes: 30
     runs-on: 'ubuntu-latest'
     permissions:
-      contents: 'read'
+      contents: 'write'
       id-token: 'write'
       issues: 'write'
       pull-requests: 'write'
+
     steps:
       - name: 'Mint identity token'
         id: 'mint_identity_token'
@@ -33,12 +35,9 @@ jobs:
         with:
           app-id: '${{ vars.APP_ID }}'
           private-key: '${{ secrets.APP_PRIVATE_KEY }}'
-          permission-contents: 'read'
+          permission-contents: 'write'
           permission-issues: 'write'
           permission-pull-requests: 'write'
-      
-      - name: Checkout Code
-        uses: actions/checkout@v4
 
       - name: 'Run Gemini CLI'
         id: 'run_gemini'
@@ -84,7 +83,7 @@ jobs:
                     "-i",
                     "--rm",
                     "-e",
-                    "GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_TOKEN}",
+                    "GITHUB_PERSONAL_ACCESS_TOKEN",
                     "ghcr.io/github/github-mcp-server:v0.27.0"
                   ],
                   "includeTools": [
@@ -96,6 +95,9 @@ jobs:
                     "pull_request_read",
                     "list_pull_requests",
                     "search_pull_requests",
+                    "create_branch",
+                    "create_or_update_file",
+                    "delete_file",
                     "fork_repository",
                     "get_commit",
                     "get_file_contents",
@@ -104,7 +106,7 @@ jobs:
                     "search_code"
                   ],
                   "env": {
-                    "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
                   }
                 }
               },
@@ -118,4 +120,4 @@ jobs:
                 ]
               }
             }
-          prompt: '/gemini-invoke'
+          prompt: '/gemini-plan-execute'

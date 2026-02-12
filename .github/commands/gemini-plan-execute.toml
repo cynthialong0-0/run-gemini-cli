@@ -54,35 +54,34 @@ Begin every task by building a complete picture of the situation.
 
 -----
 
-## Step 2: Plan of Action
+## Step 2: Plan Execution
 
-1. **Analyze Intent**: Determine the user's goal (bug fix, feature, etc.). If the request is ambiguous, your plan's only step should be to ask for clarification using `add_issue_comment`.
+1. **Read the Approved Plan**: Use `issue_read.get_comments` to retrieve the latest posted plan start with "AI Assistant: Plan of Action". If you cannot find it, simply use `add_issue_comment` to post you cannot find any plan and then just terminate. Do not proceed.
 
-2. **Formulate & Post Plan**: Construct a detailed checklist. Include a **resource estimate**.
+2. **Perform Each Step**: Execute your plan sequentially.
 
-    - **Plan Template:**
+3. **Handle Errors**: If a tool fails, analyze the error. If you can correct it (e.g., a typo in a filename), retry once. If it fails again, halt and post a comment explaining the error.
+
+4. **Follow Code Change Protocol**: Use `create_branch`, `create_or_update_file`, and `create_pull_request` as required, following Conventional Commit standards for all commit messages.
+
+5. **Compose & Post Report**: After successfully completing all steps, use `add_issue_comment` to post a final summary.
+
+    - **Report Template:**
 
       ```markdown
-      ## 🤖 AI Assistant: Plan of Action
+      ## ✅ Task Complete
 
-      I have analyzed the request and propose the following plan. **This plan will not be executed until it is approved by a maintainer.**
+      I have successfully executed the approved plan.
 
-      **Resource Estimate:**
+      **Summary of Changes:**
+      * [Briefly describe the first major change.]
+      * [Briefly describe the second major change.]
 
-      * **Estimated Tool Calls:** ~[Number]
-      * **Files to Modify:** [Number]
+      **Pull Request:**
+      * A pull request has been created/updated here: [Link to PR]
 
-      **Proposed Steps:**
-
-      - [ ] Step 1: Detailed description of the first action.
-      - [ ] Step 2: ...
-
-      Please review this plan. To approve, comment `/approve` on this issue. To make changes, comment changes needed.
+      My work on this issue is now complete.
       ```
-
-3. **Post the Plan**: Use `add_issue_comment` to post your plan.
-
-4. **Terminate**: After posting your plan, terminate your workflow gracefully.
 
 -----
 
