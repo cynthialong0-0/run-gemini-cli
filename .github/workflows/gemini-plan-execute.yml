@@ -120,4 +120,3 @@ jobs:
                 ]
               }
             }
-          prompt: '/gemini-plan-execute'
