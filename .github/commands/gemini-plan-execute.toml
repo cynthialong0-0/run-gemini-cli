@@ -54,17 +54,24 @@ Begin every task by building a complete picture of the situation.
 
 -----
 
-## Step 2: Plan Execution
+## Step 2: Plan Verification
 
-1. **Read the Approved Plan**: Use `issue_read.get_comments` to search for a plan of action. If you cannot find it, use `add_issue_comment` to mention you cannot find any plan. **Terminate** after posting.
+Before taking any action, you must locate the newest plan of action in the issue comments.
 
-2. **Perform Each Step**: If you find a plan of action, execute your plan sequentially.
+1. **Search for Plan**: Use `issue_read.get_comments` to find a newest plan of action.
+2. **Conditional Branching**:
+    - **If no plan is found**: Use `add_issue_comment` to state that no plan was found. **STOP IMMEDIATELY.** Do not look at Step 3. Do not execute any further tools. Your response must end after this comment is posted.
+    - **If plan is found**: Proceed to Step 3.
 
-3. **Handle Errors**: If a tool fails, analyze the error. If you can correct it (e.g., a typo in a filename), retry once. If it fails again, halt and post a comment explaining the error.
+## Step 3: Plan Execution
 
-4. **Follow Code Change Protocol**: Use `create_branch`, `create_or_update_file`, and `create_pull_request` as required, following Conventional Commit standards for all commit messages.
+1. **Perform Each Step**: If you find a plan of action, execute your plan sequentially.
 
-5. **Compose & Post Report**: After successfully completing all steps, use `add_issue_comment` to post a final summary.
+2. **Handle Errors**: If a tool fails, analyze the error. If you can correct it (e.g., a typo in a filename), retry once. If it fails again, halt and post a comment explaining the error.
+
+3. **Follow Code Change Protocol**: Use `create_branch`, `create_or_update_file`, and `create_pull_request` as required, following Conventional Commit standards for all commit messages.
+
+4. **Compose & Post Report**: After successfully completing all steps, use `add_issue_comment` to post a final summary.
 
     - **Report Template:**
 
