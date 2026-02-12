@@ -129,7 +129,7 @@ to the
 
 ### Issue Triage
 
-This action can be used to triage GitHub Issues automatically or on a schedule.
+This action can be triage GitHub Issues automatically or on a schedule.
 For a detailed guide on how to set up the issue triage system, go to the
 [GitHub Issue Triage workflow documentation](./examples/workflows/issue-triage).
 
@@ -317,6 +317,11 @@ project-specific context and instructions to [Gemini CLI]. This is useful for de
 coding conventions, architectural patterns, or other guidelines the model should
 follow for a given repository.
 
+
+## Verifying Changes
+
+Before submitting your changes, it's important to run the evaluation suite to ensure that your changes have the intended effect and do not introduce any regressions. For detailed instructions on how to run the evaluations, please refer to the [**evals documentation**](./evals/README.md).
+
 ## Contributing
 
 Contributions are welcome! Check out the Gemini CLI
@@ -325,7 +330,7 @@ started.
 
 [secrets]: https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
 [settings_json]: https://github.com/google-gemini/gemini-cli/blob/main/docs/get-started/configuration.md#settings-files
-[Gemini]: https://deepmind.google/models/gemini/
+[Gemini]: https://deepmind.google.com/models/gemini/
 [Google AI Studio]: https://aistudio.google.com/apikey
 [Gemini CLI]: https://github.com/google-gemini/gemini-cli/
 [Google Cloud support]: https://cloud.google.com/support
