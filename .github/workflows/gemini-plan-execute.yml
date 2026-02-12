@@ -25,6 +25,7 @@ jobs:
       id-token: 'write'
       issues: 'write'
       pull-requests: 'write'
+      administration: 'write'
 
     steps:
       - name: 'Mint identity token'
@@ -38,6 +39,7 @@ jobs:
           permission-contents: 'write'
           permission-issues: 'write'
           permission-pull-requests: 'write'
+          permission-administration: 'write'
 
       - name: 'Run Gemini CLI'
         id: 'run_gemini'
