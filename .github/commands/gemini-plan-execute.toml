@@ -1,4 +1,7 @@
+description = "Runs the Gemini CLI"
+prompt = """
 1. Use `fork_repository` to fork the current repository
 2. Use `create_or_update_file` to create a Hello.md, with "Hello world" as the content.
 3. Use `create_pull_request` to request to pull to the current repository
 4. If any error occurs, use `add_issue_comment` to post the error in the issue. If no error, use `add_issue_comment` to summarize what you've done.
+"""
