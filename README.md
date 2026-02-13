@@ -31,6 +31,7 @@ Use it to perform GitHub pull request reviews, triage issues, perform code analy
   - [Observability](#observability)
   - [Extensions](#extensions)
   - [Best Practices](#best-practices)
+  - [Run Evals](#run-evals)
   - [Customization](#customization)
   - [Contributing](#contributing)
 
@@ -309,6 +310,10 @@ Key recommendations include:
 - **Monitoring and Auditing:** Regularly reviewing action logs and enabling OpenTelemetry for deeper insights into performance and behavior.
 
 For a comprehensive guide on securing your repository and workflows, please refer to our [**Best Practices documentation**](./docs/best-practices.md).
+
+## Run Evals
+
+To verify changes and ensure the quality of the Gemini CLI, you can run evaluations (evals). For detailed instructions on how to write and execute evals, refer to the [Evals README](./evals/README.md).
 
 ## Customization
 
