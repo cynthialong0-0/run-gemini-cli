@@ -94,6 +94,16 @@ jobs:
                   "env": {
                     "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
                   }
+                },
+                "code-review": {
+                  "command": "docker",
+                  "args": [
+                    "run",
+                    "gcr.io/code-assist/code-review-mcp-server"
+                  ],
+                  "env": {
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+                  }
                 }
               },
               "tools": {
