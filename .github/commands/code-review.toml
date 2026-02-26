@@ -96,7 +96,7 @@ Details...
 </OUTPUT>
 
 !{ [ "{{args}}" = "pr-review" ] && {
-    cat <<'EOF'
+    printf ```
     <SUBMIT_REVIEW>
     1. **Create Pending Review:** Call `create_pending_pull_request_review`. Ignore errors like "can only have one pending review per pull request" and proceed to the next step.
 
@@ -131,6 +131,6 @@ Details...
         - Keep this section concise and do not repeat details already covered in inline comments.
         </SUMMARY>
     </SUBMIT_REVIEW>
-    EOF
+    ```
 }}
 """
