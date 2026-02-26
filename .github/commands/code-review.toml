@@ -12,12 +12,12 @@ Provide **insightful feedback** and **concrete, ready-to-use code suggestions** 
 
 <CONTEXT>
 !{ [ "{{args}}" = "pr-review" ] && {
-    printf ```
+    printf '
     **GitHub Repository**: %s
     **Pull Request Number**: %s
     **Additional User Instructions**: %s
     **Pull Review Details**: use `pull_request_read.get` tool to get the title, body, and metadata about the pull request.
-    ``` "$REPOSITORY" "$PULL_REQUEST_NUMBER" "$ADDITIONAL_CONTEXT"
+    ' "$REPOSITORY" "$PULL_REQUEST_NUMBER" "$ADDITIONAL_CONTEXT"
 }}
 </CONTEXT>
 
@@ -100,7 +100,7 @@ Details...
 </OUTPUT>
 
 !{ [ "{{args}}" = "pr-review" ] && {
-    printf ```
+    printf '
     <SUBMIT_REVIEW>
     1. **Create Pending Review:** Call `create_pending_pull_request_review`. Ignore errors like "can only have one pending review per pull request" and proceed to the next step.
 
@@ -134,6 +134,6 @@ Details...
         - Keep this section concise and do not repeat details already covered in inline comments.
         </SUMMARY>
     </SUBMIT_REVIEW>
-    ```
+    '
 }}
 """
