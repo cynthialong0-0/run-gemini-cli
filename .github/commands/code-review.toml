@@ -102,12 +102,17 @@ Details...
 !{ [ "{{args}}" = "pr-review" ] && {
     printf '
     <SUBMIT_REVIEW>
+    **Review Comment Formatting**
+
+    - **Line Accuracy:** Ensure suggestions perfectly align with the line numbers and indentation of the code they are intended to replace.
+
+        - Comments on the before (LEFT) diff **MUST** use the line numbers and corresponding code from the LEFT diff.
+
+        - Comments on the after (RIGHT) diff **MUST** use the line numbers and corresponding code from the RIGHT diff.
+
     1. **Create Pending Review:** Call `create_pending_pull_request_review`. Ignore errors like "can only have one pending review per pull request" and proceed to the next step.
 
     2. **Add Comments and Suggestions:** For each formulated review comment, call `add_comment_to_pending_review`. 
-       **Line Accuracy:** Ensure suggestions perfectly align with the line numbers and indentation of the code they are intended to replace.
-        - Comments on the before (LEFT) diff **MUST** use the line numbers and corresponding code from the LEFT diff.
-        - Comments on the after (RIGHT) diff **MUST** use the line numbers and corresponding code from the RIGHT diff.
 
         2a. For each suggested change, structure the comment payload using this exact template:
 
