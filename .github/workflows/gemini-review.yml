@@ -106,4 +106,8 @@ jobs:
                 ]
               }
             }
+          extensions: |
+            [
+              "https://github.com/gemini-cli-extensions/code-review"
+            ]
           prompt: '/code-review pr-review'
